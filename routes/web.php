@@ -24,8 +24,11 @@ Route::get('/', function () {
 });
 Route::get('/', 'HomeController@index');
 Route::get('rel/{articalName}', 'HomeController@readingArticle');
-Route::get('/phumasia-activity', 'HomeController@phumaisaActivity');
-Route::get('/trandictoinal', 'HomeController@trandictoinal');
+Route::get('/academy_cafe', 'HomeController@academy_cafe');
+Route::get('/entreprenuers', 'HomeController@entreprenuers');
+Route::get('/food_product', 'HomeController@food_product');
+Route::get('/community_college', 'HomeController@community_college');
+Route::get('/livelihood', 'HomeController@livelihood');
 Route::get('watch/{videoSlug}', 'HomeController@watch');
 Route::get('/shop-with-impact', 'HomeController@mayamer_shope_desing');
 Route::post('/subscription', function(Request $request){
@@ -46,7 +49,4 @@ Route::post('/subscription', function(Request $request){
     }else{
       return response()->json(["Error"=>'Your Email has been subscripted!']);
     }
-});
-Route::get('/welcomepage', function() {
-  return view('front/ex');
 });

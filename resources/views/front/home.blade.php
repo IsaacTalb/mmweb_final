@@ -153,43 +153,45 @@
                             </div>
                         </a>
                         <div class="video_title">
-                            <h4 class="p-3">動画のタイトル</h4>
+                            <h4 class="p-3">Our Recent Activities</h4>
                         </div>
                     </div>
                     @endforeach
                 </div>
             </div>
             <div class="col-sm-4 side_bar_right">
-                <h2>当社の魅力</h2>
+                <h2>What are we doing:</h2>
                 <ul>
                     <li>
-                        <a href="">クメールのトランジションダンス</a>
+                        <a href="">Academy Cafe & Events</a>
                     </li>
                     <li>
-                        <a href="">クイ先住民製品づくり</a>
+                        <a href="">Entreprenuers</a>
                     </li>
                     <li>
-                        <a href="">クイ先住民博物館</a>
+                        <a href="">Foods Product</a>
                     </li>
                     <li>
-                        <a href="">環境活動の</a>
+                        <a href="">Community School</a>
                     </li>
                     <li>
-                        <a href="">教育</a>
+                        <a href="">Livelihoods</a>
+                    </li>
+                    <li>
+                        <a href="">Environmental</a>
                     </li>
                 </ul>
                 <div class="realative_page mt-5">
                     <i class="fa-solid fa-arrow-right"></i>
-                    <a href="#sfs" >ミャンマーのページとの比較 </a>
+                    <a href="#sfs" >Check out to our member Cambodia Page </a>
                 </div>
                 <hr>
-                <h2>当社の魅力</h2>
+                <h2>CWB Mission</h2>
                 <p class="mt-3 mb-5">
-                    CWBのミッション
-                    国境なく働くということは、地理的な境界に制約されずに世界中の人々と協力することを意味するかもしれません。
-                    これは多くの場合、テクノロジーとリモートワークの取り決めによって促進されます。
+                国境を超えて働くということはによって、それは地理的な境界に制約されずに世界中
+                の人々と協力すること。 そしてそれはテクノロジー
+                とリモートワークでつながり加速し、互いの問題を超えてインスパイアしていくことです。
                 </p>
-                <h2 class="mt-3 mb-5 h4">新しいフィード投稿</h2>
                 <div class="img_galery">
                     @foreach($data['New_activty_posting'] as $item)
                     <div class="img_blocks" style="background-image: url({{ asset($item->photo_cover) }});" 

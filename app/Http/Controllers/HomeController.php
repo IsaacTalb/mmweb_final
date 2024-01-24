@@ -2,24 +2,32 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-
 use Artesaos\SEOTools\Facades\SEOTools;
 class HomeController extends Controller
 {
 	protected $navbar = [];
+	private $articles;
+	private $pageActionId;
 	public function __construct()
 	{
-		/*$this->navbar['nav_country'] = DB::table('creator_teams')
-			->select('slug', 'title', 'logo')
-			->get();
-		
-		$this->navbar['foot_keyword'] = DB::table('keywords')
-			->select('slug', 'title_en')
-			->get();*/
-	
+		$this->pageActionId = 1;
+		$this->fetchArticles(); 
 	}
+	private function fetchArticles()
+    {
+        $data['article'] = DB::table('activities')
+		->where('status', 1)->orderBy('created_at', 'DESC')->limit(13)->get();
+        $this->articles = [];
+        foreach ($data['article'] as $item) {
+            $article = unserialize($item->action_key);
+            if (is_array($article) && in_array($this->pageActionId, $article)) {
+                $this->articles[] = $item;
+            }
+        }
+    }
+
 	public function index()
 	{
 		$data['new_video_feed'] = DB::table('video')
@@ -34,7 +42,8 @@ class HomeController extends Controller
 		->get();
 		return view('front.home', compact('data'));
 	}
-	public function trandictoinal(){
+
+	public function academy_cafe(){
 		$data['video'] = DB::table('video')
 		->select()
 		->orderBy('created_at', 'DESC')
@@ -42,12 +51,15 @@ class HomeController extends Controller
 		$video_target = [];
 			foreach($data['video'] as $item){
 				$categoryIds = unserialize($item->category);
-				if (is_array($categoryIds) && in_array(1, $categoryIds)) {
+				if (is_array($categoryIds) && in_array(1, $categoryIds)){
 					$video_target[]  = $item;
 				}
 			} 
-		$data['videoArtegSelected'] = $video_target;
-		return view('front/tradictional', compact('data'));
+			$data['videoArtegSelected'] = $video_target;
+			$this->pageActionId = 1; // Example: change the value to 2
+			$this->fetchArticles();
+			$data['article_target'] = $this->articles;
+			return view('front/academy_cafe', compact('data'));
 	}
 	public function readingArticle($articleSlug){
         $data['article'] = DB::table('activities')
@@ -63,7 +75,7 @@ class HomeController extends Controller
 		->first();
 		return view('front/waching_video')->with('data', $data);
 	}
-   public function	phumaisaActivity(){
+   public function	entreprenuers(){
 		$data['video'] = DB::table('video')
 		->select()
 		->orderBy('created_at', 'DESC')
@@ -76,11 +88,69 @@ class HomeController extends Controller
 				}
 			} 
 		$data['videoArtegSelected'] = $video_target;
-		return view('front/phumasia_activity', compact('data'));
+		$this->pageActionId = 3; // Example: change the value to 2
+		$this->fetchArticles();
+		$data['article_target'] = $this->articles;
+		return view('front/entreprenuers', compact('data'));
    }
 
+   public function	food_product(){
+	$data['video'] = DB::table('video')
+	->select()
+	->orderBy('created_at', 'DESC')
+	->get();
+		$video_target = [];
+		foreach($data['video'] as $item){
+			$categoryIds = unserialize($item->category);
+			if (is_array($categoryIds) && in_array(3, $categoryIds)) {
+				$video_target[]  = $item;
+			}
+		} 
+	$data['videoArtegSelected'] = $video_target;
+	$this->pageActionId = 3; // Example: change the value to 2
+	$this->fetchArticles();
+	$data['article_target'] = $this->articles;
+	return view('front/food_product', compact('data'));
+}
+
+public function	community_college(){
+	$data['video'] = DB::table('video')
+	->select()
+	->orderBy('created_at', 'DESC')
+	->get();
+		$video_target = [];
+		foreach($data['video'] as $item){
+			$categoryIds = unserialize($item->category);
+			if (is_array($categoryIds) && in_array(3, $categoryIds)) {
+				$video_target[]  = $item;
+			}
+		} 
+	$data['videoArtegSelected'] = $video_target;
+	$this->pageActionId = 3; // Example: change the value to 2
+	$this->fetchArticles();
+	$data['article_target'] = $this->articles;
+	return view('front/community_college', compact('data'));
+}
+
+public function	livelihood(){
+	$data['video'] = DB::table('video')
+	->select()
+	->orderBy('created_at', 'DESC')
+	->get();
+		$video_target = [];
+		foreach($data['video'] as $item){
+			$categoryIds = unserialize($item->category);
+			if (is_array($categoryIds) && in_array(3, $categoryIds)) {
+				$video_target[]  = $item;
+			}
+		} 
+	$data['videoArtegSelected'] = $video_target;
+	$this->pageActionId = 3; // Example: change the value to 2
+	$this->fetchArticles();
+	$data['article_target'] = $this->articles;
+	return view('front/livelihood', compact('data'));
+}
    public function	mayamer_shope_desing(){
 	return view('front/myamershop');
    }
-
 }

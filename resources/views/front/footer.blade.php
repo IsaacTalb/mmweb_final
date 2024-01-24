@@ -1,13 +1,18 @@
-<footer style="background-color: #774332; padding:10px 0;">
+<footer style="background-color: #094c61; padding:10px 0;">
     <div class="container">
             <div class="row">
                 <div class="col-sm-3 company_slugan">
                     <div class="logo">
                         <b>W</b>
                     </div>
-                    <p class="text-center">
-                      国境なく働くということは、世界中の人々と協力することを意味するかもしれません。
-                    </p>
+                    <div class="text-center">
+                      <ul style="text-align: justify; color:white;">
+                        <li>CWB  Myanmar</li>
+                        <li>you can explore about the environmental with Julian & Seng Du:</li>    
+                        <li>you can  learn more about the Café Event with Isaac:</li>   
+                        <li>you can  directly purchase several products in the related page:</li>
+                      </ul>
+                    </div>
                 </div>
                 <div class="col-sm-3 company_slugan">
                 </div>
@@ -15,7 +20,7 @@
                     <div id="ignielSubscribe">
                         <div class="email__">
                             <div class="email">
-                              <h3 style="color: white;"> 購読する</h3>
+                              <h3 style="color: white;"> Subscribe here!</h3>
                                 <div class="subscription_col">
                                     <input name="email" class="email" id="subscriptmail" placeholder="Contoh: nama@mail.com"/>
                                     <input name="uri" type="hidden" value="igniel" /> <input name="loc" type="hidden" value="en_US" />
@@ -35,8 +40,8 @@
                 </div>
             </div>
             <div class="row">
-                <p class="text-center">
-                    2024@phumasiaActivity_japanes_v
+                <p class="text-center" style="color: white;">
+                    2024 @ CWB Myanmar
                 </p>
             </div>
     </div>

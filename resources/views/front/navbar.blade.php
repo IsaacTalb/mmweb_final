@@ -6,14 +6,24 @@
                 </div>
                 <div id="mainListDiv" class="main_list">
                     <ul class="navlinks">
-                            <li class="{{ (request()->is('trandictoinal')? 'active' : '' ) }} ">
-                                <a href="{{ url('/trandictoinal') }}">カンボジアの伝統料理</a>
+                            <li class="{{ (request()->is('academy_cafe')? 'active' : '' ) }} ">
+                                <a href="{{ url('/academy_cafe') }}">Academy Cafe & Events</a>
                             </li>
-                        <li class="{{ (request()->is('phumasia-activity')? 'active' : '' ) }}"><a href="{{ url('/phumasia-activity') }}">クイアクティビティ</a></li>
-                        <li><a href="{{ url('welcomepage') }}">プーマシア活動</a></li>
-                        <li><a href="#">環境</a></li>
-                        <li><a href="#">起業家精神</a></li>
-                        <li><a href="#">コラボレーション</a></li>
+                            <li class="{{ (request()->is('entreprenuers')? 'active' : '' ) }}">
+                                <a href="{{ url('/entreprenuers') }}">Entreprenuers</a>
+                            </li>
+                            <li class="{{ (request()->is('food_product')? 'active' : '' ) }}">
+                                <a href="{{ url('food_product') }}">Food Product</a>
+                            </li>
+                            <li>
+                                <a href="#">Community School</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('entrepreneur') }}">Livelihood</a>
+                            </li>
+                            <li>
+                                <a href="#">Environmental</a>
+                            </li>
                     </ul>
                 </div>
                 <div class="d-flex">
